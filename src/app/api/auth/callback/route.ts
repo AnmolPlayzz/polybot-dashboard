@@ -22,6 +22,7 @@ export async function GET(request: Request) {
             }
         });
         const discordUser = await response.json();
+        console.log(discordUser)
         const existingUser = await sql`SELECT * FROM auth_user WHERE discord_id = ${discordUser.id}`
         console.log(existingUser)
         if (existingUser) {
