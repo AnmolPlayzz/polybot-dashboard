@@ -1,0 +1,92 @@
+.navBar {
+    height: 90px;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(15px) brightness(0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20000;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.largeNav {
+    width: 100%;
+    padding: 0 30px;
+    height: 100%;
+    position: relative;
+}
+
+.leftHeader {
+    float: left;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    .leftHeaderImage {
+        background: #0c0c0c;
+        border-radius: 12px;
+        outline: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 3px;
+        transition: 0.1s all ease-in;
+    }
+    .leftHeaderImage:hover {
+        cursor: pointer;
+        background: #1e1e1e;
+    }
+
+    .leftHeaderImage:active {
+        cursor: pointer;
+        background: #111111;
+        transform: scale(0.9);
+    }
+
+    .leftHeaderTitle {
+        font-size: 16px;
+        color: white;
+        position: relative;
+        font-weight: 300;
+    }
+    .leftHeaderBar {
+        width: 20px;
+        margin: 0 10px;
+        height: 5px;
+        border-radius: 4px;
+        background : linear-gradient(90deg, rgba(0, 217, 255, 1) 0%, rgba(144, 32, 255, 1) 50.33%, rgba(255, 54, 221, 1) 100%);
+    }
+}
+
+.centreLinks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: fit-content;
+    gap: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .link {
+        text-decoration: none;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 14px;
+        border-radius: 10px;
+        transition: 0.1s all ease-in;
+        .image {
+            margin-right: 8px;
+        }
+    }
+    .link:hover {
+        background: rgba(255, 255, 255, 0.18);
+    }
+    .link:active {
+        background: rgba(255, 255, 255, 0.06);
+        transform: scale(0.87);
+    }
+}
+

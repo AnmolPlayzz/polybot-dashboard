@@ -1,0 +1,22 @@
+.rightNav {
+    float: right;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    .rightAvatarImage{
+        background: rgba(12, 12, 12, 0.4);
+        border-radius: 12px;
+        outline: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 3px;
+        transition: 0.1s all ease-in;
+    }
+    .rightAvatarImage:hover {
+        cursor: pointer;
+        background: rgba(84, 84, 84, 0.16);
+    }
+    .rightAvatarImage:active {
+        cursor: pointer;
+        background: rgba(129, 129, 129, 0.35);
+        scale: 0.9;
+    }
+}

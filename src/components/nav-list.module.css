@@ -1,0 +1,38 @@
+.navList {
+    position: absolute;
+    top: 72px;
+    right: 25px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    gap: 5px;
+    padding: 5px;
+    width: 120px;
+    background: rgba(12, 12, 12, 0.53);
+    border-radius: 10px;
+    border: 1px solid rgba(211, 211, 211, 0.13);
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
+    .form {
+        width: 100%;
+    }
+    .button {
+        border: 0;
+        padding: 7px 15px;
+        background: transparent;
+        color: white;
+        width: 100%;
+        text-align: left;
+        border-radius: 7px;
+        transition: 0.1s all ease;
+    }
+    .button:hover {
+        cursor: pointer;
+        background: rgba(141, 141, 141, 0.34);
+    }
+    .button:active {
+        cursor: pointer;
+        background: rgba(91, 91, 91, 0.34);
+    }
+    .logout {
+        color: #ffbcbc;
+    }
+}
