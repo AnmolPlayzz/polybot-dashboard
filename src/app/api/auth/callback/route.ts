@@ -24,8 +24,7 @@ export async function GET(request: Request) {
         const discordUser = await response.json();
         console.log(discordUser)
         const existingUser = await sql`SELECT * FROM auth_user WHERE discord_id = ${discordUser.id}`
-        console.log(existingUser)
-        if (existingUser) {
+        if (existingUser.length===1) {
             const session = await lucia.createSession(existingUser[0].id, {});
             const sessionCookie: any = lucia.createSessionCookie(session.id)
             const data = await sql`SELECT * FROM discord_token WHERE init_token=${tokens.accessToken}`
