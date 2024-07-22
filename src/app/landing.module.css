@@ -102,7 +102,7 @@
     border: 0;
 }
 
-.landingLoginButton p {
+.landingLoginButton .p {
     margin: 0 7px 0 0;
     font-size: 15px;
 }
@@ -165,7 +165,7 @@
     font-size: 15px;
     padding: 8px;
     margin-left: 12px;
-    p {
+    .p {
         margin: 0 0 0 10px;
         font-size: 15px;
     }

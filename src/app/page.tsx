@@ -17,13 +17,13 @@ export default function Page() {
                 <div className={styles.landingButtonContainer}>
                     <Link className={styles.landingLoginButton} href="/api/auth/login">
                         <Image src="/images/home-discord.svg" alt="discord icon image" className={styles.landingLoginButtonImg} width={20} height={20} quality={100} layout="intrinsic" />
-                        <p>
+                        <p className={styles.p}>
                             Log in
                         </p>
                     </Link>
                     <a href="https://polybot-website.vercel.app/" target="_blank" className={styles.landingRedirectButton}>
                         <Image src="/images/landing-redirect.svg" alt="website redirect image" width={16} height={16} quality={100} layout="intrinsic" />
-                        <p>
+                        <p className={styles.p}>
                             Website
                         </p>
                     </a>
