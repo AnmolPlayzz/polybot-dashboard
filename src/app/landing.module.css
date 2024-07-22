@@ -1,0 +1,207 @@
+.landingMain {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 850px;
+    height: 400px;
+}
+
+.landingImageContainer {
+    position: relative;
+    height: 100%;
+    width: 40%;
+    margin-right: 50px;
+}
+
+.landingImageTop {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.landingImageBottom {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(30px);
+}
+
+.landingTextContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.landingTextContainer .h1 {
+    font-weight: 900;
+    color: white;
+    font-size: 45px;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 40px;
+    height: fit-content;
+    position: relative;
+}
+
+.landingTextContainer .h1::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: -25px;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    border-radius: 1vmax;
+    height: 60%;
+    background: linear-gradient(180deg, rgba(0, 217, 255, 1) 0%, rgba(144, 32, 255, 1) 50.33%, rgba(255, 54, 221, 1) 100%);
+}
+
+.landingTextContainer .h1::before {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: -25px;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    border-radius: 1vmax;
+    height: 60%;
+    background: linear-gradient(180deg, rgba(0, 217, 255, 1) 0%, rgba(144, 32, 255, 1) 50.33%, rgba(255, 54, 221, 1) 100%);
+    filter: blur(18px);
+}
+
+.landingTextContainer .p {
+    font-weight: 300;
+    color: white;
+    font-size: 20px;
+    height: fit-content;
+}
+
+.landingButtonContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+}
+
+.landingLoginButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
+    font-size: 15px;
+    border-radius: 7px;
+    background: linear-gradient(135deg, rgba(0, 30, 36, 1) 0%, rgba(22, 4, 38, 1) 50.67%, rgba(31, 6, 27, 1) 100%);
+    position: relative;
+    padding: 8px;
+    border: 0;
+}
+
+.landingLoginButton p {
+    margin: 0 7px 0 0;
+    font-size: 15px;
+}
+
+.landingLoginButton::after {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    content: "";
+    border-radius: 8px;
+    background:  linear-gradient(135deg, rgba(0, 217, 255, 1) 0%, rgba(144, 32, 255, 1) 50.33%, rgba(255, 54, 221, 1) 100%);;
+    z-index: -1;
+}
+
+.landingLoginButton::before {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    content: "";
+    border-radius: 8px;
+    background:  linear-gradient(135deg, rgba(0, 217, 255, 1) 0%, rgba(144, 32, 255, 1) 50.33%, rgba(255, 54, 221, 1) 100%);;
+    z-index: -1;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+.landingLoginButtonImg {
+    padding: 10px 6px;
+    border-radius: 8px;
+    margin-right: 8px;
+    background-color: rgba(12, 12, 12, 0.59);
+}
+
+.landingLoginButton:hover::before {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    content: "";
+    border-radius: 8px;
+    background:  linear-gradient(135deg, rgba(0, 217, 255, 1) 0%, rgba(144, 32, 255, 1) 50.33%, rgba(255, 54, 221, 1) 100%);;
+    z-index: -1;
+    opacity: 1;
+    filter: blur(25px);
+}
+
+.landingRedirectButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    text-decoration: none;
+    color: white;
+    font-weight: 400;
+    font-size: 15px;
+    padding: 8px;
+    margin-left: 12px;
+    p {
+        margin: 0 0 0 10px;
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 916px) {
+    .landingMain {
+        flex-direction: column;
+        width: 83%;
+        align-items: start;
+    }
+    .landingTextContainer .h1 {
+        font-weight: 900;
+        color: white;
+        font-size: 45px;
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        height: fit-content;
+        position: relative;
+    }
+
+    .landingTextContainer > .p {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    .landingTextContainer .h1::after {
+        content: none;
+    }
+    .landingTextContainer .h1::before {
+        content: none;
+    }
+    .landingImageContainer {
+        margin: 0 0 2em 0;
+    }
+    .landingImageBottom {
+        filter: blur(10px);
+    }
+}
