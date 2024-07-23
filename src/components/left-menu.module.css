@@ -1,0 +1,109 @@
+.leftMenuButton {
+    display: none;
+}
+
+.leftPane {
+    display: none;
+}
+
+@media screen and (max-width: 765px) {
+    .leftMenuButton {
+        display: block;
+        position: relative;
+        border: 0;
+        outline: 1px solid rgba(255, 255, 255, 0.06);
+        background: rgba(12, 12, 12, 0.18);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        margin-right: 20px;
+        overflow: hidden;
+        transition: 0.1s all ease-in;
+
+        .menuIcon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.4s cubic-bezier(0.87, 0, 0.13, 1);
+        }
+        .crossIcon {
+            position: absolute;
+            top: 50%;
+            left: -50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.4s cubic-bezier(0.87, 0, 0.13, 1);
+
+        }
+    }
+
+    .leftMenuButton:hover {
+        cursor: pointer;
+        background: rgba(84, 84, 84, 0.16);
+    }
+    .leftMenuButton:active {
+        cursor: pointer;
+        background: rgba(129, 129, 129, 0.35);
+        scale: 0.9;
+    }
+
+    .leftMenuButton.active {
+        .menuIcon {
+            top: 50%;
+            left: 150%;
+        }
+        .crossIcon {
+            top: 50%;
+            left: 50%;
+        }
+    }
+
+    .leftPane {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        height: calc(100vh - 91px);
+        position: fixed;
+        top: 91px;
+        left: -100%;
+        backdrop-filter: blur(20px) brightness(0.5);
+        z-index: 1000;
+        transition: all 0.6s cubic-bezier(0.87, 0, 0.13, 1);
+        .outboundLinks {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            height: fit-content;
+            width: 100%;
+            .link {
+                text-decoration: none;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 10px 14px;
+                border-radius: 10px;
+                transition: 0.1s all ease-in;
+                .image {
+                    margin-right: 8px;
+                }
+            }
+            .link:hover {
+                background: rgba(255, 255, 255, 0.18);
+            }
+            .link:active {
+                background: rgba(255, 255, 255, 0.06);
+                transform: scale(0.87);
+            }
+        }
+    }
+    .leftPane.panelActive {
+        left: 0;
+    }
+
+}

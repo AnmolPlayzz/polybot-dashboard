@@ -90,3 +90,16 @@
     }
 }
 
+
+@media screen and (max-width: 765px) {
+    .leftHeaderBar {
+        display: none;
+    }
+    .leftHeaderImage {
+        display: none;
+    }
+    .centreLinks {
+        display: none;
+    }
+
+}
