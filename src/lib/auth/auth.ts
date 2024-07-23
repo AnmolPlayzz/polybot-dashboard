@@ -1,3 +1,4 @@
+import 'server-only'
 import {cookies} from "next/headers";
 import {lucia} from "@/lib/lucia";
 import {User, Session} from "lucia";

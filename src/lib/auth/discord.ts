@@ -1,3 +1,4 @@
+import 'server-only'
 import { Discord } from "arctic";
 
 const clientId:string= process.env.CLIENT_ID || "";
