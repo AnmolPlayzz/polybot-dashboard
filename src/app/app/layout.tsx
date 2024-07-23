@@ -16,7 +16,7 @@ export default async function DashboardLayout({children, left_panel}: {children:
         return redirect('/');
     }
     return <>
-        <NavBar iconUrl={discordUser.avatar_url || "/images/landing.png"}>
+        <NavBar username={discordUser.username || ""} iconUrl={discordUser.avatar_url || "/images/landing.png"}>
             {left_panel}
         </NavBar>
         {children}

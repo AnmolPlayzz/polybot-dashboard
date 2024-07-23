@@ -1,9 +1,11 @@
 .navList {
+    z-index: 1100;
     position: absolute;
     top: 72px;
     right: 25px;
     backdrop-filter: blur(10px);
     display: flex;
+    flex-direction: column;
     gap: 5px;
     color: white;
     padding: 5px;
@@ -14,6 +16,8 @@
     box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
     .form {
         width: 100%;
+        border-top: 1px solid rgba(211, 211, 211, 0.13);
+        padding-top: 5px;
     }
     .button {
         border: 0;
@@ -35,5 +39,28 @@
     }
     .logout {
         color: #ffbcbc;
+    }
+
+
+    .username {
+        border: 0;
+        padding: 7px 15px;
+        background: transparent;
+        color: white;
+        width: 100%;
+        text-align: left;
+        margin: 0;
+
+    }
+}
+
+@media screen and (max-width: 455px) {
+    .button:hover {
+        cursor: pointer;
+        background: unset;
+    }
+    .button:active {
+        cursor: pointer;
+        background: rgba(91, 91, 91, 0.34);
     }
 }

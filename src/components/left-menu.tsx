@@ -6,11 +6,14 @@ export default function LeftMenu({children}: {children: React.ReactNode}) {
     const [openState, setOpenState] = useState(false);
     console.log(children)
     return <>
-        <button onClick={() => setOpenState((val) => !val)} className={openState ? `${styles.leftMenuButton} ${styles.active}` : styles.leftMenuButton}>
-            <Image className={styles.crossIcon} src="/icons/nav-bar/cross.svg" alt="cross icon" width={16} height={16} priority={true} />
-            <Image className={styles.menuIcon} src="/icons/nav-bar/menu.svg" alt="menu icon" width={16} height={16} priority={true} />
+        <button onClick={() => setOpenState((val) => !val)}
+                className={openState ? `${styles.leftMenuButton} ${styles.active}` : styles.leftMenuButton}>
+            <Image className={styles.crossIcon} src="/icons/nav-bar/cross.svg" alt="cross icon" width={16} height={16}
+                   priority={true}/>
+            <Image className={styles.menuIcon} src="/icons/nav-bar/menu.svg" alt="menu icon" width={16} height={16}
+                   priority={true}/>
         </button>
-        <div className={ openState ? `${styles.leftPane} ${styles.panelActive}` : styles.leftPane}>
+        <div className={openState ? `${styles.leftPane} ${styles.panelActive}` : styles.leftPane}>
             {children}
             <div className={styles.outboundLinks}>
                 <a href="https://polybot-website.vercel.app/" target="_blank" className={styles.link}>
@@ -25,5 +28,6 @@ export default function LeftMenu({children}: {children: React.ReactNode}) {
                 </a>
             </div>
         </div>
+        <div className={ openState ? `${styles.bg} ${styles.panelActive}` :styles.bg}></div>
     </>
 }

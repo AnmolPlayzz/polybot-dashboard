@@ -20,3 +20,15 @@
         scale: 0.9;
     }
 }
+
+@media screen and (max-width: 455px) {
+    .rightAvatarImage:hover {
+        cursor: pointer;
+        background: rgba(12, 12, 12, 0.4) !important;
+    }
+    .rightAvatarImage:active {
+        cursor: pointer;
+        background: rgba(129, 129, 129, 0.35) !important;
+        scale: 0.9;
+    }
+}

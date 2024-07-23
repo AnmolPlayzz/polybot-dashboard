@@ -2,7 +2,6 @@
     height: 90px;
     width: 100%;
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(15px) brightness(0.75);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,6 +9,17 @@
     position: fixed;
     top: 0;
     left: 0;
+}
+
+.navBar::after {
+    backdrop-filter: blur(15px) brightness(0.75);
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 90px;
+    width: 100%;
+    z-index: -1;
 }
 
 .largeNav {
@@ -68,10 +78,10 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    .link {
+    .cenlink {
         text-decoration: none;
         color: white;
-        display: flex;
+        display: flex !important;
         align-items: center;
         justify-content: center;
         padding: 10px 14px;
@@ -81,10 +91,10 @@
             margin-right: 8px;
         }
     }
-    .link:hover {
+    .cenlink:hover {
         background: rgba(255, 255, 255, 0.18);
     }
-    .link:active {
+    .cenlink:active {
         background: rgba(255, 255, 255, 0.06);
         transform: scale(0.87);
     }

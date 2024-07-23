@@ -5,7 +5,7 @@ import LeftMenu from "@/components/left-menu";
 import NavList from "@/components/nav-list";
 import React from "react";
 
-export default function NavBar({children, iconUrl}: {children: React.ReactNode,iconUrl: string}) {
+export default function NavBar({children, iconUrl, username}: {children: React.ReactNode,iconUrl: string, username: string}) {
     return <nav className={styles.navBar}>
         <div className={styles.largeNav}>
             <div className={styles.leftHeader}>
@@ -17,17 +17,17 @@ export default function NavBar({children, iconUrl}: {children: React.ReactNode,i
                 <h2 className={styles.leftHeaderTitle}>Dashboard</h2>
             </div>
             <div className={styles.centreLinks}>
-                <a href="https://polybot-website.vercel.app/" target="_blank" className={styles.link}>
+                <a href="https://polybot-website.vercel.app/" target="_blank" className={styles.cenlink}>
                     <Image className={styles.image} src="/icons/nav-bar/redirect.svg" alt="redirect" width={18} height={18} priority={true}/>
                     Website
                 </a>
-                <a href="https://github.com/AnmolPlayzz/PolyBot" target="_blank" className={styles.link}>
+                <a href="https://github.com/AnmolPlayzz/PolyBot" target="_blank" className={styles.cenlink}>
                     <Image className={styles.image} src="/icons/nav-bar/github.svg" alt="redirect" width={18} height={18} priority={true}/>
                     GitHub
                 </a>
             </div>
             <NavItems iconUrl={iconUrl}>
-                <NavList />
+                <NavList username={username} />
             </NavItems>
         </div>
     </nav>
