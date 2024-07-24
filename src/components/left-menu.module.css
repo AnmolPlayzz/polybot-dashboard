@@ -6,7 +6,7 @@
     display: none;
 }
 
-@media screen and (max-width: 765px) {
+@media screen and (max-width: 1200px) {
     .leftMenuButton {
         display: block;
         position: relative;

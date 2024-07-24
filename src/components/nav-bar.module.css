@@ -101,7 +101,7 @@
 }
 
 
-@media screen and (max-width: 765px) {
+@media screen and (max-width: 1200px) {
     .leftHeaderBar {
         display: none;
     }

@@ -1,0 +1,26 @@
+.leftServerNav {
+    position: absolute;
+    bottom: 0;
+    height: calc(100vh - 90px);
+    width: 375px;
+    backdrop-filter: brightness(0.75);
+    border-right: 2px solid rgba(65, 65, 65, 0.19);
+}
+
+.mainContent {
+    position: absolute;
+    top: 90px;
+    left: 375px;
+    height: fit-content;
+}
+
+@media screen and (max-width: 1200px) {
+    .leftServerNav {
+        display: none;
+    }
+    .mainContent {
+        position: absolute;
+        top: 90px;
+        left: 0;
+    }
+}
