@@ -1,17 +1,203 @@
 .dashboardMain {
     width: 100%;
-    height: 100%;
+    height: fit-content;
     display: flex;
     flex-direction: column;
+    margin-top: 120px;
     align-items: center;
     justify-content: center;
+    .selectServerHead{
+        font-weight: 900;
+        font-size: 38px;
+        text-align: center;
+        width: fit-content;
+        background: linear-gradient(135deg, rgba(0, 217, 255, 1) 0%, rgba(144, 32, 255, 1) 50.33%, rgba(255, 54, 221, 1) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        position: relative;
+    }
+    .selectServerHead::after {
+        content: "Select a Server";
+        font-weight: 900;
+        font-size: 38px;
+        top: 0;
+        left: 0;
+        position: absolute;
+        text-align: center;
+        background: linear-gradient(135deg, rgba(0, 217, 255, 1) 0%, rgba(144, 32, 255, 1) 50.33%, rgba(255, 54, 221, 1) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        filter: blur(20px);
+        opacity: 0.8;
+        z-index: -1;
+    }
+
+    .mainContainer {
+        position: relative;
+        width: fit-content;
+        border: 1px solid rgba(93, 93, 93, 0.22);
+        border-radius: 8px;
+        .selectServerMain {
+            width: 35vw;
+            min-width: 325px;
+            border-radius: 8px;
+            background: rgba(35, 35, 35, 0.33);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            gap: 10px;
+            height: 60vh;
+            overflow-y: scroll;
+            .server {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                border-radius: 8px;
+                border: 1px solid rgba(65, 65, 65, 0.19);
+                background: rgba(12, 12, 12, 0.37);
+                padding: 10px;
+                box-sizing: border-box;
+                text-decoration: none;
+                outline: 0 solid rgba(58, 58, 58, 0.49);
+                transition: all 0.1s ease;
+                .imageContainer {
+                    border-radius: 6px;
+                    border: 1px solid rgba(65, 65, 65, 0.19);
+                    background: rgba(0, 0, 0, 0.32);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+                    padding: 8px;
+                    width: 50px;
+                    height: 50px;
+                    overflow: clip;
+                    .mainImage {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        border-radius: 6px;
+                    }
+                    .blurImage {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        border-radius: 6px;
+                        filter: blur(20px);
+                    }
+                    .noIcon {
+                        color: white;
+                        font-size: 20px;
+                        text-decoration: none !important;
+                    }
+                }
+                .serverName {
+                    color: white;
+                    margin-left: 20px;
+                    font-size: 18px;
+                    font-weight: 300;
+                    width: calc(100% - 130px);
+                    margin-top: 0;
+                    margin-bottom: 0;
+                    text-decoration: none !important;
+                }
+                .serverLink {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                }
+            }
+            .server:hover {
+                background: rgba(42, 42, 42, 0.43);
+                outline: 3px solid rgba(58, 58, 58, 0.49);
+            }
+            .server:active {
+                background: rgba(23, 23, 23, 0.43);
+                outline: 3px solid rgba(58, 58, 58, 0.49);
+                scale: 0.95;
+            }
+            .noServer {
+                color: white;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-size: 18px;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+        }
+        .addBot {
+            position: absolute;
+            box-sizing: border-box;
+            width: 100%;
+            height: 60px;
+            border-top: 1px solid rgba(58, 58, 58, 0.22);
+            bottom: 0;
+            left: 0;
+            backdrop-filter: blur(20px);
+            z-index: 20;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.1s ease;
+            .addIcon {
+                width: 25px;
+                height: 25px;
+                margin-right: 10px;
+            }
+        }
+        .addBot:hover {
+            background: rgba(51, 51, 51, 0.58);
+        }
+        .addBot:active {
+            background: rgba(28, 28, 28, 0.67);
+        }
+    }
 }
 
-.tempDetails {
-    color: white;
-    font-size: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+@media screen and (max-width: 1330px) {
+    .dashboardMain{
+        .mainContainer {
+            .selectServerMain {
+                width: 60vw;
+            }
+        }
+    }
 }
+
+@media screen and (max-width: 500px) {
+    .dashboardMain{
+        .mainContainer {
+            .selectServerMain {
+                .server:hover {
+                    background: rgba(42, 42, 42, 0);
+                    outline: 0px solid rgba(58, 58, 58, 0.49);
+                }
+                .server:active {
+                    background: rgba(23, 23, 23, 0.43);
+                    outline: 3px solid rgba(58, 58, 58, 0.49);
+                    scale: 0.95;
+                }
+            }
+            .addBot:hover {
+                background: rgba(0, 0, 0, 0);
+            }
+            .addBot:active {
+                background: rgba(28, 28, 28, 0.67);
+            }
+        }
+    }
+}
+

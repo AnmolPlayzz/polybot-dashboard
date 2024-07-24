@@ -4,7 +4,6 @@ import Image from "next/image";
 import React, {useState} from "react";
 export default function LeftMenu({children}: {children: React.ReactNode}) {
     const [openState, setOpenState] = useState(false);
-    console.log(children)
     return <>
         <button onClick={() => setOpenState((val) => !val)}
                 className={openState ? `${styles.leftMenuButton} ${styles.active}` : styles.leftMenuButton}>

@@ -4,6 +4,7 @@ import NavItems from "@/components/nav-item";
 import LeftMenu from "@/components/left-menu";
 import NavList from "@/components/nav-list";
 import React from "react";
+import Link from "next/link";
 
 export default function NavBar({children, iconUrl, username}: {children: React.ReactNode,iconUrl: string, username: string}) {
     return <nav className={styles.navBar}>
@@ -12,7 +13,9 @@ export default function NavBar({children, iconUrl, username}: {children: React.R
                 <LeftMenu>
                     {children}
                 </LeftMenu>
-                <Image className={styles.leftHeaderImage} src="/images/landing.png" alt={"bot icon"} width={40} height={40} priority={true} />
+                <Link href="/app">
+                    <Image className={styles.leftHeaderImage} src="/images/landing.png" alt={"bot icon"} width={40} height={40} priority={true} />
+                </Link>
                 <div className={styles.leftHeaderBar}></div>
                 <h2 className={styles.leftHeaderTitle}>Dashboard</h2>
             </div>

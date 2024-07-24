@@ -3,6 +3,16 @@ body {
     padding: 0;
     background: #09050B;
 }
+
+* {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
 .bg-container {
     position: relative;
     height: 100vh;
@@ -37,6 +47,7 @@ main {
     width: 100%;
     height: 100%;
     z-index: 1000;
+    overflow-x: hidden;
 }
 
 * {
