@@ -1,3 +1,4 @@
+"use server"
 import "server-only"
 import {sql} from "@/lib/db";
 const token:string | undefined = process.env.TOKEN;
@@ -57,6 +58,7 @@ export async function fetchServers(sessionId?:string): Promise<{
     name: string,
     icon_url: string | null
 }[]> {
+
     const botServersFetch = await fetch("https://discord.com/api/v10/users/@me/guilds", {
         headers: {
             "Authorization": `Bot ${token}`

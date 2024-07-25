@@ -1,0 +1,206 @@
+.headContainer {
+    padding-top: 40px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+}
+.currentServer{
+    padding: 10px;
+    border-radius: 10px;
+    position: relative;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.95);
+    transition: all 0.1s ease;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+
+
+    .expandImage {
+        transition: all 0.2s ease
+    }
+    .expandImage.open {
+        transform: rotate(180deg);
+    }
+}
+
+.serverName {
+    color: white;
+    font-weight: 300;
+    margin-left: 5px;
+    text-overflow: ellipsis;
+    padding: 0 7px;
+    box-sizing: border-box;
+    width: calc(100% - 90px);
+}
+
+.imageContainer {
+    padding: 8px;
+    position: relative;
+    border-radius: 8px;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    background: #0c0c0c;
+    border: 1px solid rgba(58, 58, 58, 0.49);
+    .topImage {
+        border-radius: 8px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .blurImage {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        filter: blur(20px);
+    }
+    .noIcon {
+        margin: 0;
+        color: white;
+        text-decoration: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.currentServer::after {
+    position: absolute;
+    content: "";
+    top: -1px;
+    left: -1px;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    z-index: -1;
+    border-radius: 10px;
+    background : linear-gradient(90deg, rgba(0, 217, 255, 1) 0%, rgba(144, 32, 255, 1) 50.33%, rgba(255, 54, 221, 1) 100%);
+    background-repeat: no-repeat;
+    transition: all 0.6s cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+.currentServer::before {
+    position: absolute;
+    content: "";
+    top: 4px;
+    left: 35px;
+    width: calc(100% - 70px);
+    height: calc(100% + 2px);
+    z-index: -1;
+    border-radius: 10px;
+    background : linear-gradient(90deg, rgba(0, 217, 255, 1) 0%, rgba(144, 32, 255, 1) 50.33%, rgba(255, 54, 221, 1) 100%);
+    filter: blur(25px);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.currentServer:hover {
+    cursor: pointer;
+    background: rgba(35, 35, 35, 0.98);
+}
+
+.currentServer:hover::before {
+    opacity: 0;
+}
+
+.currentServer:active {
+    background: rgb(23, 23, 23);
+    .expandImage {
+        transform: scale(99%);
+    }
+}
+
+
+.serverList {
+    z-index: 1100;
+    position: absolute;
+    top: 120px;
+    height: fit-content;
+    width: 283px;
+    left: 45px;
+    bottom: -40px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: white;
+    padding: 8px;
+    box-sizing: border-box;
+    background: rgba(12, 12, 12, 0.53);
+    border-radius: 10px;
+    border: 1px solid rgba(211, 211, 211, 0.13);
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.5);
+    .link {
+        margin: 2px 0;
+        padding: 4px;
+        border-radius: 8px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        transition: all 0.1s ease;
+        .serverListName {
+            text-overflow: ellipsis;
+            color: white;
+            margin: 0 0 0 10px;
+        }
+    }
+    .link:hover {
+        background: rgba(58, 58, 58, 0.29);
+    }
+    .link:active {
+        background: rgba(30, 30, 30, 0.29);
+    }
+}
+
+
+@media screen and (max-width: 1200px) {
+    .serverList {
+        width: 310px;
+    }
+}
+
+@media screen and (max-width: 455px) {
+
+    .currentServer:hover {
+        cursor: pointer;
+        background: #0c0c0c;
+    }
+
+    .currentServer:hover::before {
+        opacity: 0.7;
+    }
+
+    .currentServer:active::before {
+        opacity: 0;
+    }
+
+    .currentServer:active {
+        background: rgb(23, 23, 23);
+        .expandImage {
+            transform: scale(99%);
+        }
+    }
+
+    .serverList {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 75%;
+        .link:hover {
+            background: rgba(58, 58, 58, 0);
+        }
+        .link:active {
+            background: rgba(73, 73, 73, 0.36);
+        }
+    }
+}

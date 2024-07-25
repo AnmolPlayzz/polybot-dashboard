@@ -1,10 +1,17 @@
 "use client"
 import styles from "./left-menu.module.css"
 import Image from "next/image";
-import React, {useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
+import {CurrentServerContext} from "@/contexts/current-server-context";
+import BackButton from "@/components/server-navigation/back-button";
 export default function LeftMenu({children}: {children: React.ReactNode}) {
     const [openState, setOpenState] = useState(false);
+    const {id, setCurrent} = useContext(CurrentServerContext)
+    useEffect(() => {
+        setOpenState(false)
+    }, [id]);
     return <>
+        <BackButton />
         <button onClick={() => setOpenState((val) => !val)}
                 className={openState ? `${styles.leftMenuButton} ${styles.active}` : styles.leftMenuButton}>
             <Image className={styles.crossIcon} src="/icons/nav-bar/cross.svg" alt="cross icon" width={16} height={16}

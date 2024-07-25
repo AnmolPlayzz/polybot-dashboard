@@ -62,15 +62,15 @@
     }
 
     .leftPane {
+        box-sizing: border-box;
         display: flex;
         flex-direction: column;
         height: calc(100vh - 91px);
         position: fixed;
         top: 91px;
-        min-width: 400px;
+        min-width: 375px;
         max-width: 500px;
         left: -120vw;
-        backdrop-filter: blur(20px) brightness(0.75);
         z-index: 1000;
         transition: all 0.6s cubic-bezier(0.87, 0, 0.13, 1);
         box-shadow: 10px 0px 30px rgba(0, 0, 0, 0.64);
@@ -105,14 +105,27 @@
             }
         }
     }
-
+    .leftPane::after {
+        content: "";
+        box-sizing: border-box;
+        display: flex;
+        height: calc(100vh - 91px);
+        position: fixed;
+        top: 91px;
+        min-width: 375px;
+        max-width: 500px;
+        left: -120vw;
+        backdrop-filter: blur(20px) brightness(0.75);
+        z-index: -3;
+        transition: all 0.6s cubic-bezier(0.87, 0, 0.13, 1);
+    }
     .bg {
         width: 100vw;
         height: 100vh;
         position: fixed;
         top: 0;
         left: -100vw;
-        backdrop-filter: brightness(0.6);
+        background: rgba(12, 12, 12, 0.44);
         z-index: -1;
         transition: all 0.8s cubic-bezier(0.87, 0, 0.13, 1);
 
@@ -121,16 +134,24 @@
     .leftPane.panelActive {
         left: 0;
     }
+    .leftPane.panelActive::after {
+        left: 0;
+
+    }
+
     .bg.panelActive {
         left: 0;
         transition: all 0.4s cubic-bezier(0.87, 0, 0.13, 1);
-
     }
 }
 @media screen and (max-width: 455px) {
     .leftPane {
         width: 100vw;
+    }
+    .leftPane::after {
+        width: 100vw;
         backdrop-filter: blur(20px) brightness(0.5);
+        z-index: -2;
     }
     .leftMenuButton:hover {
         cursor: pointer;

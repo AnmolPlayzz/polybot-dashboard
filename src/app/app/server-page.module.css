@@ -45,7 +45,8 @@
             position: relative;
             display: flex;
             flex-direction: column;
-            padding: 20px;
+            padding: 20px 20px 70px 20px;
+            box-sizing: border-box;
             gap: 10px;
             height: 60vh;
             overflow-y: scroll;

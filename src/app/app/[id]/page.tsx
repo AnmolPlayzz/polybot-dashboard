@@ -3,5 +3,11 @@ export default function ServerHome({params}: {
         id: string;
     }
 }) {
-    return <p>{params.id}</p>
+    return <p
+        style={{
+            color: "white"
+        }}
+    >
+        {params.id}
+    </p>
 }

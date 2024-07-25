@@ -6,3 +6,10 @@
     font-size: 15px;
     margin: 30px 0;
 }
+
+.serverSideBar {
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+}

@@ -1,5 +1,5 @@
-import {cookies} from "next/headers";
 import styles from "./server-page.module.css"
+import {cookies} from "next/headers";
 import Image from "next/image";
 import {lucia} from "@/lib/lucia";
 import {fetchServers} from "@/lib/app/server";
@@ -26,7 +26,7 @@ export default async function DashboardHome() {
             <div className={styles.mainContainer}>
                 <div className={styles.selectServerMain}>
                         {data.length > 0 ? data.map((server) => (
-                            <Link href={`/app/${server.id}`} className={styles.server} key={server.id}>
+                            <Link href={`app/${server.id}`} className={styles.server} key={server.id}>
                                 <div className={styles.imageContainer}>
                                     {server.icon_url ? (
                                         <>
