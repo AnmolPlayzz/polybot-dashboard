@@ -11,7 +11,6 @@ export default async function DashboardHome() {
         return null
     }
     const data = await fetchServers(session.value)
-    console.log(data)
     function getInitials(txt: string): string {
         const list : string[] = txt.split(" ")
         const mapped = list.map((text: string) => text.at(0))
@@ -26,7 +25,7 @@ export default async function DashboardHome() {
             <div className={styles.mainContainer}>
                 <div className={styles.selectServerMain}>
                         {data.length > 0 ? data.map((server) => (
-                            <Link href={`app/${server.id}`} className={styles.server} key={server.id}>
+                            <Link href={`app/${server.id}/home`} className={styles.server} key={server.id}>
                                 <div className={styles.imageContainer}>
                                     {server.icon_url ? (
                                         <>

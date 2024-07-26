@@ -47,7 +47,7 @@ export default function ServerPicker({servers, id}: {
         </div>
         {selectorOpen && <div className={styles.serverList}>
             {servers.filter(server => server.id !== currentServer.id).map(server => {
-                return <Link href={`/app/${server.id}`} key={server.id} className={styles.link} onClick={() => setSelectorOpen(false)}>
+                return <Link href={`/app/${server.id}/home`} key={server.id} className={styles.link} onClick={() => setSelectorOpen(false)}>
                     <div className={styles.imageContainer}>{server.icon_url ?
                         <>
                             <Image className={styles.blurImage} src={server.icon_url} alt={currentServer.name}

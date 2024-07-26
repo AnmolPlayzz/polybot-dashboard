@@ -3,7 +3,7 @@
     bottom: 0;
     height: calc(100vh - 90px);
     width: 375px;
-    backdrop-filter: brightness(0.75);
+    background: rgba(12, 12, 12, 0.26);
     border-right: 2px solid rgba(65, 65, 65, 0.19);
 }
 
@@ -12,6 +12,7 @@
     top: 90px;
     left: 375px ;
     height: fit-content;
+    width: calc(100vw - 375px);
 }
 
 @media screen and (max-width: 1200px) {
@@ -22,5 +23,11 @@
         position: absolute;
         top: 90px;
         left: 0;
+        width: 100vw;
     }
+}
+
+
+@media screen and (max-width: 455px) {
+
 }
