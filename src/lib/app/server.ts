@@ -1,6 +1,12 @@
 "use server"
 import "server-only"
 import {sql} from "@/lib/db";
+const api: string | undefined = process.env.PB_API;
+
+if (!api) {
+    throw new Error("Missing API url.");
+}
+
 const token:string | undefined = process.env.TOKEN;
 if (!token) {
     throw new Error("No discord token provided.")
@@ -58,13 +64,12 @@ export async function fetchServers(sessionId?:string): Promise<{
     name: string,
     icon_url: string | null
 }[]> {
-
     const botServersFetch = await fetch("https://discord.com/api/v10/users/@me/guilds", {
         headers: {
             "Authorization": `Bot ${token}`
         },
         next: {
-            revalidate:5
+            revalidate: 60
         }
     })
     if (!botServersFetch.ok) {
@@ -81,7 +86,7 @@ export async function fetchServers(sessionId?:string): Promise<{
             "Authorization": `Bearer ${discordToken}`
         },
         next: {
-            revalidate:5
+            revalidate:60
         }
     })
     if (!userServerData.ok) {
@@ -104,4 +109,25 @@ export async function fetchServers(sessionId?:string): Promise<{
             icon_url: data.icon ? `https://cdn.discordapp.com/icons/${data.id}/${data.icon}.webp?size=1024&format=webp` : null,
         }
     })
+}
+
+export async function getServerStats(id: string) {
+    const serverDataReq = await fetch(`${api}/server`, {
+        method: "POST",
+        body: JSON.stringify({
+            id
+        }),
+        headers: {
+            "Content-Type": "application/json"
+        },
+        next: {
+            revalidate: 20
+        }
+    })
+    if(!serverDataReq.ok) {
+        throw new Error("Error getting server stats.")
+    }
+
+    const data = await serverDataReq.json()
+    return data;
 }

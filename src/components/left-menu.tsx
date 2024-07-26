@@ -4,12 +4,14 @@ import Image from "next/image";
 import React, {useContext, useEffect, useState} from "react";
 import {CurrentServerContext} from "@/contexts/current-server-context";
 import BackButton from "@/components/server-navigation/back-button";
+import {usePathname} from "next/navigation";
 export default function LeftMenu({children}: {children: React.ReactNode}) {
     const [openState, setOpenState] = useState(false);
     const {id, setCurrent} = useContext(CurrentServerContext)
+    const path = usePathname()
     useEffect(() => {
         setOpenState(false)
-    }, [id]);
+    }, [id, path]);
     return <>
         <BackButton />
         <button onClick={() => setOpenState((val) => !val)}

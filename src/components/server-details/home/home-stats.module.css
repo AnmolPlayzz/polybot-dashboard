@@ -1,0 +1,156 @@
+.serverDetailsContainer {
+    background: rgba(12, 12, 12, 0.45);
+    border: 1px solid rgba(72, 72, 72, 0.32);
+    display: flex;
+    width: 75%;
+    border-radius: 10px;
+    position: relative;
+    padding: 25px;
+    box-sizing: border-box;
+    .imageContainer {
+        background: rgba(30, 30, 30, 0.42);
+        border: 1px solid rgba(30, 30, 30, 0.42);
+        position: relative;
+        border-radius: 8px;
+        width: 180px;
+        height: 180px;
+        overflow: hidden;
+        .image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 7px;
+        }
+        .blurImage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 7px;
+            filter: blur(20px) brightness(0.7);
+        }
+        .noIcon {
+            color: white;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 50px;
+        }
+    }
+    .statsContainer {
+        box-sizing: border-box;
+        margin-left: 30px;
+        position: relative;
+        width: calc(100% - 180px);
+        .serverName {
+            margin: 1px 0 0 0;
+            font-weight: 900;
+            color: white;
+            position: relative;
+            border-radius: 5px;
+            padding: 8px 15px;
+            z-index: 20;
+            width: fit-content;
+            background: rgba(12, 12, 12, 0.82);
+        }
+        .serverName::before {
+            border-radius: 5px;
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(12, 12, 12, 0.82);
+            z-index: -1;
+        }
+        .serverName::after {
+            border-radius: 5px;
+            content: "";
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            width: calc(100% + 2px);
+            height: calc(100% + 2px);
+            background: linear-gradient(135deg, rgba(0, 217, 255, 1) 0%, rgba(144, 32, 255, 1) 50.33%, rgba(255, 54, 221, 1) 100%);
+            z-index: -2;
+        }
+        .serverStats {
+            padding-top: 10px;
+            box-sizing: border-box;
+            display: grid;
+            grid-template-columns: repeat(4, calc(25% - 10px));
+            gap: 10px;
+            width: 100%;
+            height: calc(100% - 37px);
+            margin-bottom: 20px;
+            justify-content: left;
+            .stat {
+                border-radius: 7px;
+                background: rgba(30, 30, 30, 0.32);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                box-sizing: border-box;
+                .statName {
+                    font-weight: 300;
+                    color: white;
+                    box-sizing: border-box;
+                    text-align: center;
+                    margin: 5px 0;
+                }
+                .statValue {
+                    font-weight: 900;
+                    font-style: italic;
+                    color: white;
+                    text-align: center;
+                    font-size: 35px;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1410px) {
+    .serverDetailsContainer {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 875px) {
+    .serverDetailsContainer {
+        .imageContainer {
+            height: 261px;
+        }
+        .statsContainer {
+            width: 100%;
+            .serverStats {
+                grid-template-columns: repeat(2, calc(50% - 10px));
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .serverDetailsContainer {
+        flex-direction: column;
+        .imageContainer {
+            height: 180px;
+        }
+        .statsContainer {
+            margin: 15px 0 0 0;
+            .serverStats {
+                grid-template-columns: repeat(2, calc(50% - 10px));
+                .stat {
+                    padding: 8px 0;
+                }
+            }
+        }
+    }
+}
