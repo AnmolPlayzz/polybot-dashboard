@@ -41,7 +41,7 @@ export default async function DashboardHome() {
                                 <p className={styles.serverName}>
                                     {server.name}
                                 </p>
-                                <Image src="/icons/app/server/arrow.svg" alt="edit server" width={20} height={20}/>
+                                <Image className={styles.serverLink} src="/icons/app/server/arrow.svg" alt="edit server" width={20} height={20}/>
                             </Link>
                         )) : <p className={styles.noServer}>
                             PolyBot is not in any server where you have the &apos;Manage

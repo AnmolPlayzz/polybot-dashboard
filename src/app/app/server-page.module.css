@@ -11,25 +11,35 @@
         font-size: 38px;
         text-align: center;
         width: fit-content;
-        background: linear-gradient(135deg, rgba(0, 217, 255, 1) 0%, rgba(144, 32, 255, 1) 50.33%, rgba(255, 54, 221, 1) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: white;
+        font-weight: 100;
         position: relative;
     }
     .selectServerHead::after {
-        content: "Select a Server";
-        font-weight: 900;
-        font-size: 38px;
-        top: 0;
-        left: 0;
+        content: "";
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
         position: absolute;
-        text-align: center;
+        width: 40%;
+        height: 5px;
         background: linear-gradient(135deg, rgba(0, 217, 255, 1) 0%, rgba(144, 32, 255, 1) 50.33%, rgba(255, 54, 221, 1) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        filter: blur(20px);
-        opacity: 0.8;
         z-index: -1;
+        border-radius: 15px;
+    }
+
+    .selectServerHead::before {
+        content: "";
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        position: absolute;
+        width: 40%;
+        height: 5px;
+        background: linear-gradient(135deg, rgba(0, 217, 255, 1) 0%, rgba(144, 32, 255, 1) 50.33%, rgba(255, 54, 221, 1) 100%);
+        z-index: -1;
+        border-radius: 15px;
+        filter: blur(12px);
     }
 
     .mainContainer {
@@ -109,7 +119,7 @@
                     display: flex;
                     align-items: center;
                     justify-content: center;
-
+                    margin-left: 10px;
                 }
             }
             .server:hover {
@@ -173,6 +183,16 @@
         .mainContainer {
             .selectServerMain {
                 width: 60vw;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 850px){
+    .dashboardMain{
+        .mainContainer {
+            .selectServerMain {
+                width: 90vw;
             }
         }
     }
