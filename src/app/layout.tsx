@@ -8,7 +8,8 @@ const roboto = Roboto({
     display: 'swap',
 })
 export const metadata: Metadata = {
-  title: "PolyBot Dashboard"
+    title: "PolyBot Dashboard",
+    description: "The web dashboard for PolyBot.",
 };
 
 export default function RootLayout({

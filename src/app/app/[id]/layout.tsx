@@ -5,6 +5,11 @@ import {lucia} from "@/lib/lucia";
 import {fetchServers} from "@/lib/app/server";
 import {notFound} from "next/navigation";
 import {Suspense} from "react";
+import type {Metadata} from "next";
+
+export const metadata: Metadata = {
+    title: "Server Details | PolyBot Dashboard",
+};
 
 export default async function ServerLayout({children, params}: {
     children: React.ReactNode,

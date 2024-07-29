@@ -6,6 +6,10 @@ import {fetchServers} from "@/lib/app/server";
 import ServersContextProvider from "@/components/context-providers/servers-context-provider";
 import LeftServerNav from "@/components/server-navigation/left-server-nav";
 import CurrentServerContextProvider from "@/components/context-providers/current-server-context-provider";
+import type {Metadata} from "next";
+export const metadata: Metadata = {
+    title: "Select a server | PolyBot Dashboard",
+};
 export default async function DashboardLayout({children}: {children: React.ReactNode}) {
     const result = await verifyAuth()
     if (!result.user || !result.session) {

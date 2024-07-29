@@ -1,6 +1,6 @@
 import SelectMenu from "@/components/form-inputs/select-menu";
 import {fetchChannels} from "@/lib/app/discord-data";
-export default async function RoleSelector({id, name, label}: {
+export default async function ChannelSelector({id, name, label}: {
     id: string,
     name: string,
     label: string,

@@ -3,6 +3,11 @@ import HomeStats from "@/components/server-details/home/home-stats";
 import {Suspense} from "react";
 import Image from "next/image";
 import Loader from "@/components/utils/loader";
+import type {Metadata} from "next";
+
+export const metadata: Metadata = {
+    title: "Server Home | PolyBot Dashboard",
+};
 
 export default async function ServerHome({params}: {
     params: {

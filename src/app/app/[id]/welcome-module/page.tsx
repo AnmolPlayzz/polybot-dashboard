@@ -1,7 +1,12 @@
 import WelcomeForm from "@/components/server-details/welcome/welcome-form";
 import styles from "./welcome-page.module.css"
-import RoleSelector from "@/components/form-inputs/role-selector";
+import ChannelSelector from "@/components/form-inputs/channel-selector";
 import {fetchWelcome} from "@/lib/app/modules/welcome";
+import type {Metadata} from "next";
+
+export const metadata: Metadata = {
+    title: "Welcome Module | PolyBot Dashboard",
+};
 
 export default async function Page({ params }: {
     params: {
@@ -21,8 +26,8 @@ export default async function Page({ params }: {
     }
     return <div className={styles.welcomeForm}>
         <WelcomeForm id={id} presetData = {initData} >
-            <RoleSelector id={id} name={"welcomeID"} label={"Welcome Channel"} />
-            <RoleSelector id={id} name={"leaveID"} label={"Leave Channel"} />
+            <ChannelSelector id={id} name={"welcomeID"} label={"Welcome Channel"} />
+            <ChannelSelector id={id} name={"leaveID"} label={"Leave Channel"} />
         </WelcomeForm>
     </div>
 }
