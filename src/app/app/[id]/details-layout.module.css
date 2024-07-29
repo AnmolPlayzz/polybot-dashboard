@@ -9,9 +9,11 @@
 
 .mainContent {
     position: absolute;
-    top: 90px;
+    top: 0;
     left: 375px ;
     height: fit-content;
+    padding-top: 90px;
+    overflow-y: visible;
     width: calc(100vw - 375px);
 }
 
@@ -21,7 +23,6 @@
     }
     .mainContent {
         position: absolute;
-        top: 90px;
         left: 0;
         width: 100vw;
     }

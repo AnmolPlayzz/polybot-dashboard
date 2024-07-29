@@ -1,0 +1,9 @@
+.welcomeForm {
+    padding: 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: visible;
+    height: calc(100vh - 90px);
+}

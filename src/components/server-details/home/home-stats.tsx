@@ -8,6 +8,16 @@ function getInitials(txt: string): string {
     return mapped.join("")
 }
 
+function parseNumber(value: number): string {
+    if (value >= 1_000 && value < 1_000_000) {
+        return String(Math.floor(value/1000))+" K"
+    } else if (value >= 1_000_000 && value < 1_000_000_000) {
+        return String(Math.floor(value/1_000_000))+" M"
+    } else {
+        return String(value)
+    }
+}
+
 export default async function HomeStats({id}: {
     id: string;
 }) {
@@ -34,7 +44,7 @@ export default async function HomeStats({id}: {
                         Members
                     </p>
                     <p className={styles.statValue}>
-                        {data.memberCount}
+                        {parseNumber(data.memberCount)}
                     </p>
                 </div>
                 <div className={styles.stat}>
@@ -42,7 +52,7 @@ export default async function HomeStats({id}: {
                         Bots
                     </p>
                     <p className={styles.statValue}>
-                        {data.botCount}
+                        {parseNumber(data.botCount)}
                     </p>
                 </div>
                 <div className={styles.stat}>
@@ -50,7 +60,7 @@ export default async function HomeStats({id}: {
                         Roles
                     </p>
                     <p className={styles.statValue}>
-                        {data.roleCount}
+                        {parseNumber(data.roleCount)}
                     </p>
                 </div>
                 <div className={styles.stat}>
@@ -58,7 +68,7 @@ export default async function HomeStats({id}: {
                         Channels
                     </p>
                     <p className={styles.statValue}>
-                        {data.channelCount}
+                        {parseNumber(data.channelCount)}
                     </p>
                 </div>
             </div>

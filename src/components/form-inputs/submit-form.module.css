@@ -1,0 +1,111 @@
+@keyframes Saving {
+    0% {
+        background-position-x: -100px;
+    }
+    100% {
+        background-position-x: 100px;
+    }
+}
+
+.submitMenu {
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    z-index: 500;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background: rgba(12, 12, 12, 0.73);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(122, 122, 122, 0.22);
+    background-image: linear-gradient(90deg, rgba(255, 0, 0, 0), #ff8585, rgba(255, 0, 0, 0));
+    background-repeat: no-repeat;
+    background-position-x: -500px;
+    border-radius: 8px;
+    gap: 10px;
+    transition: all 0.7s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    .text {
+        margin: 0 10px 0 0;
+        color: white;
+        font-size: 16px;
+        display: inline-block;
+        width: 200px;
+    }
+    .reset {
+        border: none;
+        padding: 6px 12px;
+        border-radius: 7px;
+        background: transparent;
+        color: #ff7a7a;
+        padding: 7px 18px;
+        transition: all 0.1s ease;
+    }
+    .save {
+        border: none;
+        padding: 6px 12px;
+        border-radius: 7px;
+        font-weight: 900;
+        background: #87ff87;
+        padding: 7px 18px;
+        color: #002108;
+        transition: all 0.1s ease;
+    }
+
+    .save:hover {
+        cursor: pointer;
+        background: #b0ffb0;
+        color: #002108;
+
+    }
+
+    .save:active {
+        cursor: pointer;
+        background: #5a815a;
+        color: #002108;
+    }
+
+    .reset:hover {
+        cursor: pointer;
+        background: #ffa2a2;
+        color: #1e0000;
+    }
+    .reset:active {
+        cursor: pointer;
+        background: #8c5a5a;
+        color: #1e0000;
+    }
+
+    .save.pending {
+        color: black;
+        background-image: linear-gradient(90deg, rgba(50, 255, 145, 0), #87ff87, rgba(25, 255, 124, 0));
+        background-repeat: no-repeat;
+        background-color: rgba(28, 28, 28, 0);
+        animation: Saving 2.2s cubic-bezier(0.68, -0.6, 0.32, 1.6) infinite;
+    }
+
+}
+
+@keyframes AlertAnimate {
+    0% {
+        background-position-x: -500px;
+    }
+    100% {
+        background-position-x: 500px;
+    }
+}
+
+.submitMenu.show {
+    bottom: 30px;
+    animation: AlertAnimate 1s 0.5s ease-in-out;
+}
+
+
+@media screen and  (max-width: 480px) {
+    .submitMenu {
+        .text {
+            width: 150px;
+        }
+    }
+}
+
