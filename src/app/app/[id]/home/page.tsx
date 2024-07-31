@@ -20,7 +20,6 @@ export default async function ServerHome({params}: {
             Loading server stats...
         </Loader>}>
             <HomeStats id={params.id}/>
-
         </Suspense>
     </div>
 }

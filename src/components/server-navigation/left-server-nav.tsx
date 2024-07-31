@@ -23,6 +23,11 @@ const links = [
                 name: "Welcome",
                 path: "welcome-module",
                 icon: "/icons/app/server-category/welcome"
+            },
+            {
+                name: "AutoRole",
+                path: "autorole-module",
+                icon: "/icons/app/server-category/autorole"
             }
         ]
     }

@@ -43,7 +43,6 @@ export async function updateWelcome(_: any, formData: any): Promise<{
         const collection = db.collection('welcome');
         if(data.status === null) {
             await collection.deleteMany({ guildID: data.id })
-            console.log("deleted")
         } else if (data.status === "on") {
             const dataRes = await fetchWelcome(data.id);
             if (data.welcomeID.length === 0 || !data.welcomeID) {

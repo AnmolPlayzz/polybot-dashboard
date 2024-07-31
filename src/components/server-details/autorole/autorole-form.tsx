@@ -1,24 +1,30 @@
 "use client"
-import styles from "../common/forms.module.css"
-import Toggle from "@/components/form-inputs/toggle";
+import styles from "../common/forms.module.css";
 import React, {useEffect, useLayoutEffect, useState} from "react";
-import { useFormState } from "react-dom"
-import {updateWelcome} from "@/lib/actions/welcome-module";
+import {useFormState} from "react-dom";
+import {updateAutoRole} from "@/lib/actions/autorole-module";
 import {FormManager} from "@/contexts/modules/form-manager";
+import Toggle from "@/components/form-inputs/toggle";
 import SubmitForm from "@/components/form-inputs/submit-form";
+import Warning from "@/components/utils/warning";
 
-interface WelcomeFormProps {
+interface Role {
+    id: string,
+    name: string,
+}
+
+interface AutoRoleFormProps {
     id: string,
     children: React.ReactNode,
     presetData: {
         enabled: boolean,
-        welcomeID: any,
-        leaveID: any
+        roleList: Role[]
     }
 }
 
-export default function WelcomeForm({id, children, presetData}: WelcomeFormProps) {
-    const [currentResponse, formAction] = useFormState(updateWelcome, {error: null})
+
+export default function AutoRoleForm({id, children, presetData}: AutoRoleFormProps) {
+    const [currentResponse, formAction] = useFormState(updateAutoRole, {error: null})
     const [initData, setInitData] = useState(presetData)
     const [formData, setFormData]  = useState(presetData)
     const [isDirty, setIsDirty] = useState(false)
@@ -60,10 +66,10 @@ export default function WelcomeForm({id, children, presetData}: WelcomeFormProps
     }}>
         <form className={styles.form} action={formAction}>
             <h1 className={styles.header}>
-                Welcome Module
+                AutoRole Module
             </h1>
             <div className={styles.toggleContainer}>
-                <Toggle id="welcome" name="enabled"/>
+                <Toggle id="autorole" name="enabled"/>
                 <div className={formData.enabled ? `${styles.text} ${styles.enabled}` : styles.text}>
                     <p className={styles.disabledText}>
                         Disabled
@@ -74,14 +80,17 @@ export default function WelcomeForm({id, children, presetData}: WelcomeFormProps
                 </div>
             </div>
             <div className={formData.enabled ? `${styles.formContainer} ${styles.formActive}` : styles.formContainer} style={{
-                height: formData.enabled ? "220px" : "0"
+                height: formData.enabled ? "110px" : "0"
             }}>
                 <div className={styles.formItems}>
                     {children}
                 </div>
             </div>
+            <Warning>
+                Do not select any role with elevated permissions (Manage Server, Administrator, etc)
+            </Warning>
             <input type="hidden" value={id} name="server"/>
-            <SubmitForm handleSubmit={handleSubmit} handleCancel={handleCancel} isDirty={isDirty} errors={errors.length} />
+            <SubmitForm handleCancel={handleCancel} handleSubmit={handleSubmit} isDirty={isDirty} errors={errors.length} />
         </form>
         {errors.length>0 ? <ul style={{
             listStyleType: 'none',

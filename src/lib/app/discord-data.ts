@@ -31,3 +31,30 @@ export async function fetchChannels(serverId: string, type: string): Promise<{
     const data = await channelDataReq.json()
     return data;
 }
+
+export async function fetchRoles(serverId: string): Promise<{
+    id: string,
+    roles: {
+        id: string,
+        name: string,
+    }[]
+}> {
+    const channelDataReq = await fetch(`${api}/roles`, {
+        method: "POST",
+        body: JSON.stringify({
+            guildId: serverId,
+        }),
+        headers: {
+            "Content-Type": "application/json"
+        },
+        next: {
+            revalidate: 20
+        }
+    })
+    if(!channelDataReq.ok) {
+        throw new Error("Error getting server stats.")
+    }
+
+    const data = await channelDataReq.json()
+    return data;
+}
