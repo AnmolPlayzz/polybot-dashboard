@@ -14,8 +14,10 @@
 </p>
 <p align="center">
    <img src="https://vercelbadge.vercel.app/api/anmolplayzz/polybot-dashboard" alt="vercel">
-
 </p>
+
+## The Stack
+![Stack](https://skillicons.dev/icons?i=react,next,postgres,mongo,vercel)
 
 ## Developer Setup
 
