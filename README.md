@@ -1,36 +1,112 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<a href="https://polybot-dashboard.vercel.app/">
+   <img src="./extras/art.png">
+</a>
 
-## Getting Started
+<h1 align="center">
+ PolyBot Dashboard
+</h1>
+<p align="center">
+   The dashboard for PolyBot built using <a href="https://nextjs.org/">Next.JS</a>. This app is built as a part of the larger <a href="https://github.com/AnmolPlayzz/polybot">PolyBot</a> Project.
+</p>
 
-First, run the development server:
+<p align="center">
+   <a href="https://polybot-dashboard.vercel.app/">https://polybot-dashboard.vercel.app/</a>
+</p>
+<p align="center">
+   <img src="https://vercelbadge.vercel.app/api/anmolplayzz/polybot-dashboard" alt="vercel">
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+</p>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Developer Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Node.js (v14 or higher)
+- npm (v6 or higher)
+- A running instance of PolyBot
+- PolyBot API (see installation instructions below)
+- Neon Postgres database (see setup instructions below)
 
-## Learn More
+### Neon Postgres Setup
 
-To learn more about Next.js, take a look at the following resources:
+1. Sign up for a Neon account at https://neon.tech if you haven't already.
+2. Create a new project in your Neon dashboard.
+3. In your project, create a new database for PolyBot Dashboard.
+4. Note down the connection string provided by Neon. It should look something like this:
+   ```psql
+   postgres://user:password@database-name.region-name.aws.neon.tech/neondb?options
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This Database will be used for user authentication 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Installation
 
-## Deploy on Vercel
+1. First, clone and set up the PolyBot API repository:
+   ```
+   git clone https://github.com/anmolplayzz/polybot-api.git
+   cd polybot-api
+   npm install
+   # Follow the setup instructions in the polybot-api README
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. Clone the PolyBot Dashboard repository:
+   ```
+   git clone https://github.com/anmolplayzz/polybot-dashboard.git
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+3. Navigate to the project directory:
+   ```
+   cd polybot-dashboard
+   ```
+
+4. Install dependencies:
+   ```
+   npm install
+   ```
+
+5. Create a `.env` file in the root directory and add your configuration:
+   ```
+   TOKEN="Discord Bot Token"
+   CLIENT_ID="Discord Bot Client ID"
+   CLIENT_SECRET="Discord Bot Client Secret"
+   DATABASE_URL="Neon Serverless PostgreSQL URI"
+   MONGODB_URI="MongoDB URI (From the main PolyBot Project)"
+   PB_API="URL to PolyBot API"
+   REDIRECT_URL="Redirect URL (needs to be setup in the developer dashboard at discord.dev too)
+   ```
+
+6. Build the dashboard:
+   ```
+   npm run build
+   ```
+
+7. Start the dashboard:
+   ```
+   npm start
+   ```
+
+8. Ensure that your PolyBot API is running.
+
+9. The dashboard will be available at `http://localhost:3000`
+
+**Note:** it is highly recommended to host the dashboard on a serverless platform like [vercel](https://vercel.com) or [netlify](https://netlify.com) (both are free).
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## Acknowledgments
+
+- Next.JS and React
+- [Discord.JS](https://discordjs.dev/)
+- [Lucia Auth](https://lucia-auth.com/)
+- [Arctic](https://arctic.js.org/)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Support
+
+If you encounter any problems or have any questions about setup, please open an issue on this repository or join the [official support server](https://discord.gg/AY77nuxZyk) and report it there.
+
